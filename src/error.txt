@@ -1,0 +1,12 @@
+22300篇文章完成分词！	 已完成1.7178212787985419% 	耗时：0时1分29秒
+22400篇文章完成分词！	 已完成1.725524513232616% 	耗时：0时1分31秒
+22500篇文章完成分词！	 已完成1.7332277476666902% 	耗时：0时1分34秒
+Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.util.HashMap.inflateTable(HashMap.java:320)
+	at java.util.HashMap.put(HashMap.java:492)
+	at com.huaban.analysis.jieba.viterbi.FinalSeg.viterbi(FinalSeg.java:149)
+	at com.huaban.analysis.jieba.viterbi.FinalSeg.cut(FinalSeg.java:133)
+	at com.huaban.analysis.jieba.JiebaSegmenter.sentenceProcess(JiebaSegmenter.java:209)
+	at com.huaban.analysis.jieba.JiebaSegmenter.process(JiebaSegmenter.java:109)
+	at test.IdfDictTest.writeToFile(IdfDictTest.java:112)
+	at test.IdfDictTest.main(IdfDictTest.java:200)
