@@ -3,6 +3,9 @@ package dao;
 import util.DatabaseUtil;
 import vo.Article;
 
+import javax.lang.model.element.NestingKind;
+import javax.print.attribute.standard.DateTimeAtCompleted;
+import java.security.PublicKey;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,28 @@ public class ArticleDao {
         }
         return a;
     }
+
+    public List<String> getTitleList() {
+        List<String> list = new ArrayList<String>();
+        Connection conn = DatabaseUtil.getConnection();
+        Statement st = null;
+        ResultSet rs = null;
+        String sql = "select * from article limit 0,100000";       //取前十万条
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()) {
+                String content = rs.getString("content");
+                list.add(content);
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            DatabaseUtil.closeAll(rs,st,conn);
+        }
+        return list;
+    }
+
     public List<Article> getList(){
         List<Article> list = new ArrayList<Article>();
 
